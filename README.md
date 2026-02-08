@@ -253,12 +253,3 @@ Deploy the `dist` folder to Netlify.
 - Email: akhilchandps@gmail.com
 
 ---
-
-## 🙏 Acknowledgments
-
-- Built with MERN stack
-- Inspired by modern healthcare systems
-
----
-
-⭐ If you like this project, give it a star!
