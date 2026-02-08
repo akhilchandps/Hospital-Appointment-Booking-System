@@ -232,7 +232,7 @@ Deploy the `dist` folder to Netlify.
 ### Backend
 
 - Push code to GitHub
-- Connect to Render/Heroku
+- Connect repository to Render
 - Add environment variables
 - Deploy
 
