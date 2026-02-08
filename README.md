@@ -4,6 +4,10 @@ A full-stack web application that allows patients to book doctor appointments on
 
 This system simplifies appointment scheduling, reduces manual work, and improves communication between patients, doctors, and administrators.
 
+
+## 🌐 Live Demo
+👉 Try the app here:  
+https://hospital-booking-appointment.netlify.app/login
 ---
 
 ## ✨ Features
