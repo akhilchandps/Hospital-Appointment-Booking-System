@@ -176,38 +176,51 @@ http://localhost:5173
 
 ## 🔄 API Endpoints
 
-### Authentication
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | /auth/register | Register user |
-| POST | /auth/login | Login user |
-| POST | /auth/logout | Logout user |
-| GET | /auth/authCheck | Auth status |
+All protected routes require authentication via cookies.
 
 ---
 
-### Appointments
+### 🔐 Authentication Routes
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /appointments | Fetch appointments |
-| POST | /appointments | Book appointment |
-| PUT | /appointments/:id | Update appointment |
-| DELETE | /appointments/:id | Cancel appointment |
+| Method | Endpoint | Access | Description |
+|--------|----------|--------|-------------|
+| POST | `/auth/register` | Public | Register a new user |
+| POST | `/auth/login` | Public | Login user |
+| GET | `/auth/authCheck` | Protected | Verify logged-in user |
+| POST | `/auth/logout` | Protected | Logout user |
+
+---
+
+### 📅 Appointment Routes
+
+| Method | Endpoint | Role | Description |
+|--------|----------|------|-------------|
+| POST | `/appointments/` | Patient | Book an appointment |
+| GET | `/appointments/myappo` | Patient | Get patient appointments |
+| GET | `/appointments/doctor` | Doctor | Get doctor appointments |
+| GET | `/appointments/admin` | Admin | Get all appointments |
+| PATCH | `/appointments/:id/status` | Doctor | Update appointment status |
+| DELETE | `/appointments/:id/delete` | Patient | Cancel appointment |
 
 ---
 
-### Doctors
+### 🩺 Doctor Routes
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /doctors | Fetch doctors |
-| POST | /doctors | Add doctor |
-| PUT | /doctors/:id | Update doctor |
-| DELETE | /doctors/:id | Remove doctor |
+| Method | Endpoint | Role | Description |
+|--------|----------|------|-------------|
+| POST | `/doctors/` | Admin | Add new doctor |
+| GET | `/doctors/` | Authenticated | Fetch doctors |
 
 ---
+
+## 🔐 Access Control
+
+- **Patient** → Book & manage appointments  
+- **Doctor** → View & update appointment status  
+- **Admin** → Manage doctors & view all appointments  
+
+Authentication is handled via secure cookie sessions.
+
 
 ## 🚀 Deployment
 
