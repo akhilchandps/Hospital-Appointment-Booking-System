@@ -10,6 +10,27 @@ This system simplifies appointment scheduling, reduces manual work, and improves
 https://hospital-booking-appointment.netlify.app
 ---
 
+## 🔐 Demo Login Credentials
+
+Use these demo accounts to explore each role:
+
+## 🛠 Admin
+
+Email: chand@gmail.com
+
+## Password: 123
+
+## 🩺 Doctor
+
+Email: tony@gmail.com
+
+## Password: 123
+
+👤 Patient
+
+## Email: anu
+
+Password: 123
 ## ✨ Features
 
 ### 👤 Patient
