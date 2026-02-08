@@ -50,9 +50,10 @@ exports.login = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: false,
-            sameSite: "lax",
+            secure: true,
+            sameSite: "none"
         });
+
         res.status(200).json({ message: "login successfull", role: user.role });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -62,21 +63,26 @@ exports.login = async (req, res) => {
 }
 
 exports.logout = (req, res) => {
-    res.clearCookie("token");
+    res.clearCookie("token", {
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
+    });
+
     res.json({ message: "Logged out" });
 };
 
 exports.authCheck = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select("-password");
+    try {
+        const user = await User.findById(req.user.id).select("-password");
 
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(user);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-
-    res.json(user);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
 };
 
