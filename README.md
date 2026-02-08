@@ -152,12 +152,7 @@ http://localhost:3000
 ```bash
 cd frontend
 npm install
-```
 
-Create `.env`:
-
-```
-VITE_API_URL=http://localhost:3000
 ```
 
 Run frontend:
