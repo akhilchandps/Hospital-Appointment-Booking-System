@@ -112,8 +112,8 @@ hospital-appointment-system/
 ### 1️⃣ Clone repository
 
 ```bash
-git clone https://github.com/akhilchandps/hospital-appointment-system.git
-cd hospital-appointment-system
+git clone git@github.com:akhilchandps/Hospital-Appointment-Booking-System.git
+cd Hospital-Appointment-Booking-System
 ```
 
 ---
