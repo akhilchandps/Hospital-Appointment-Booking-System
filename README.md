@@ -243,34 +243,6 @@ Deploy the `dist` folder to Netlify.
 
 ---
 
-## 🌟 Future Improvements
-
-- Online payment integration
-- Email/SMS reminders
-- Doctor availability calendar
-- Admin analytics dashboard
-- Real-time notifications
-- Patient medical history
-- Video consultation feature
-
----
-
-## 🤝 Contributing
-
-1. Fork repository  
-2. Create feature branch  
-3. Commit changes  
-4. Push branch  
-5. Open Pull Request  
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
-
 ## 👨‍💻 Author
 
 **Akhil Chand P S**
