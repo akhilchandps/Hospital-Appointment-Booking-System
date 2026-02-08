@@ -1,149 +1,257 @@
-🏥 Hospital Appointment Booking System
+# 🏥 Hospital Appointment Booking System
 
 A full-stack web application that allows patients to book doctor appointments online while enabling doctors and administrators to manage schedules efficiently.
 
 This system simplifies appointment scheduling, reduces manual work, and improves communication between patients, doctors, and administrators.
 
-✨ Features
-👤 Patient
+---
 
-Register & login
+## ✨ Features
 
-View available doctors
+### 👤 Patient
+- Register & login
+- View available doctors
+- Book appointments
+- View appointment status
 
-Book appointments
+### 🩺 Doctor
+- View assigned appointments
+- Accept or cancel bookings
+- Manage schedule
 
-View appointment status
+### 🛠 Admin
+- Add/manage doctors
+- View all appointments
+- Dashboard overview
 
-🩺 Doctor
+### 🔐 Authentication
+- Secure login/logout
+- Role-based access (patient / doctor / admin)
+- Cookie-based session management
 
-View assigned appointments
+---
 
-Accept or cancel bookings
+## 🧱 Tech Stack
 
-Manage schedule
+### Frontend
+- React.js — UI Library
+- Tailwind CSS — Styling
+- React Router — Navigation
 
-🛠 Admin
+### Backend
+- Node.js — Runtime environment
+- Express.js — Web framework
 
-Add/manage doctors
+### Database
+- MongoDB — NoSQL database
+- Mongoose — ODM
 
-View all appointments
+### Authentication
+- Cookie/session-based authentication
 
-Dashboard overview
+---
 
-🔐 Authentication
+## 📁 Project Structure
 
-Secure login/logout
-
-Role-based access (patient / doctor / admin)
-
-🧱 Tech Stack
-Frontend
-
-React.js
-
-Tailwind CSS
-
-React Router
-
-Backend
-
-Node.js
-
-Express.js
-
-Database
-
-MongoDB (Mongoose)
-
-Authentication
-
-Cookie/session-based auth
-
-📁 Project Structure
+```
 hospital-appointment-system/
 │
-├── frontend/          # React frontend
-│   ├── components/
-│   ├── pages/
-│   └── services/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   └── App.jsx
+│   └── package.json
 │
-├── backend/           # Node + Express backend
+├── backend/
 │   ├── models/
 │   ├── controllers/
-│   ├── routes/
-│   └── middleware/
+│   │   ├── routes/
+│   ├── middleware/
+│   ├── DB/
+│   └── server.js
 │
 └── README.md
+```
 
-⚙ Installation & Setup
-1️⃣ Clone the repository
-git clone https://github.com/your-username/hospital-appointment-system.git
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (local or Atlas)
+- npm or yarn
+
+---
+
+### 1️⃣ Clone repository
+
+```bash
+git clone https://github.com/akhilchandps/hospital-appointment-system.git
 cd hospital-appointment-system
+```
 
-2️⃣ Backend Setup
+---
+
+### 2️⃣ Backend Setup
+
+```bash
 cd backend
 npm install
+```
 
+Create `.env`:
 
-Create .env file:
-
+```
 PORT=3000
-MONGO_URI=your_mongodb_connection
-
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+```
 
 Run backend:
 
+```bash
 npm start
+```
 
-3️⃣ Frontend Setup
+Backend runs at:
+
+```
+http://localhost:3000
+```
+
+---
+
+### 3️⃣ Frontend Setup
+
+```bash
 cd frontend
 npm install
+```
+
+Create `.env`:
+
+```
+VITE_API_URL=http://localhost:3000
+```
+
+Run frontend:
+
+```bash
 npm run dev
+```
 
-🔄 API Endpoints (Sample)
-Method	Endpoint	Description
-POST	/auth/register	User registration
-POST	/auth/login	Login
-GET	/appointments	Fetch appointments
-POST	/appointments	Book appointment
-🚀 Future Improvements
+Frontend runs at:
 
-Online payments
+```
+http://localhost:5173
+```
 
-Email/SMS reminders
+---
 
-Doctor availability calendar
+## 🔄 API Endpoints
 
-Admin analytics dashboard
+### Authentication
 
-Real-time notifications
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /auth/register | Register user |
+| POST | /auth/login | Login user |
+| POST | /auth/logout | Logout user |
+| GET | /auth/authCheck | Auth status |
 
-📸 Screenshots (Optional)
+---
 
-Add screenshots here:
+### Appointments
 
-/screenshots/dashboard.png
-/screenshots/booking.png
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /appointments | Fetch appointments |
+| POST | /appointments | Book appointment |
+| PUT | /appointments/:id | Update appointment |
+| DELETE | /appointments/:id | Cancel appointment |
 
-🤝 Contributing
+---
 
-Contributions are welcome!
+### Doctors
 
-Fork the repo
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /doctors | Fetch doctors |
+| POST | /doctors | Add doctor |
+| PUT | /doctors/:id | Update doctor |
+| DELETE | /doctors/:id | Remove doctor |
 
-Create a feature branch
+---
 
-Commit changes
+## 🚀 Deployment
 
-Open a pull request
+### Frontend
 
-📄 License
+```bash
+npm run build
+```
+
+Deploy the `dist` folder to Netlify.
+
+---
+
+### Backend
+
+- Push code to GitHub
+- Connect to Render/Heroku
+- Add environment variables
+- Deploy
+
+---
+
+## 🌟 Future Improvements
+
+- Online payment integration
+- Email/SMS reminders
+- Doctor availability calendar
+- Admin analytics dashboard
+- Real-time notifications
+- Patient medical history
+- Video consultation feature
+
+---
+
+## 🤝 Contributing
+
+1. Fork repository  
+2. Create feature branch  
+3. Commit changes  
+4. Push branch  
+5. Open Pull Request  
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License.
 
-👨‍💻 Author
+---
 
-Akhil Chand PS
-Full Stack Developer
-MERN Stack Enthusiast
+## 👨‍💻 Author
+
+**Akhil Chand P S**
+
+- Portfolio: https://akhilchand-portfolio-new02.netlify.app/
+- LinkedIn: https://www.linkedin.com/in/akhil-chand-ps-489a9622b/
+- GitHub: https://github.com/akhilchandps
+- Email: akhilchandps@gmail.com
+
+---
+
+## 🙏 Acknowledgments
+
+- Built with MERN stack
+- Inspired by modern healthcare systems
+
+---
+
+⭐ If you like this project, give it a star!
