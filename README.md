@@ -23,7 +23,7 @@ Use these accounts to explore each role in the system.
 - **Password:** 123  
 
 ### 👤 Patient
-- **Email:** anu  
+- **Email:** anu@gmail.com  
 - **Password:** 123  
 
 ---
