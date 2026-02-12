@@ -7,7 +7,7 @@ This system simplifies appointment scheduling, reduces manual work, and improves
 
 ## 🌐 Live Demo
 👉 Try the app here:  
-https://hospital-booking-appointment.netlify.app
+https://hospital-booking-appointment-new2.netlify.app
 ---
 
 ## 🔐 Demo Login Credentials

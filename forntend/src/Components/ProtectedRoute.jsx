@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
+import { serverURL } from "../services/serverURL";
 
 function ProtectedRoute({ children, requiredRole }) {
   const [user, setUser] = useState(null);
@@ -8,7 +9,7 @@ function ProtectedRoute({ children, requiredRole }) {
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/authCheck", {
+        const res = await fetch(`${serverURL}/auth/authCheck`, {
           credentials: "include",
         });
         const data = await res.json();

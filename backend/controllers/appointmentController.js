@@ -45,6 +45,21 @@ exports.getMyAppointments = async (req, res) => {
             .find({ patientId: req.user.id })
             .populate("doctorId");
 
+        const now = new Date();
+
+        appointments.sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+
+            const isPastA = dateA < now;
+            const isPastB = dateB < now;
+
+            if (isPastA && !isPastB) return 1;
+            if (!isPastA && isPastB) return -1;
+
+            return dateA - dateB;
+        });
+
         res.status(200).json(appointments);
 
     } catch (error) {
@@ -54,7 +69,6 @@ exports.getMyAppointments = async (req, res) => {
         });
     }
 };
-
 
 exports.getDoctorAppointments = async (req, res) => {
 
@@ -93,26 +107,34 @@ exports.getAllAppointments = async (req, res) => {
 };
 
 exports.updateStatus = async (req, res) => {
+  try {
+    const { status } = req.body;
+    const { id } = req.params;
 
-    try {
-        const { status } = req.body;
-        const { id } = req.params
+    const appt = await Appointment.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    )
+      .populate("patientId", "name email")
+      .populate("doctorId", "name specialization");
 
-        const appt = await Appointment.findByIdAndUpdate(id);
-
-        appt.status = status;
-
-        await appt.save();
-
-        res.status(200).json(appt);
-
-    } catch (error) {
-        res.status(500).json({
-            message: "Failed to updateStatus",
-            error: error.message,
-        });
+    if (!appt) {
+      return res.status(404).json({
+        message: "Appointment not found",
+      });
     }
+
+    res.status(200).json(appt);
+
+  } catch (error) {
+    res.status(500).json({
+      message: "Failed to updateStatus",
+      error: error.message,
+    });
+  }
 };
+
 
 exports.cancelAppointment = async (req, res) => {
 
